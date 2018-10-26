@@ -1,4 +1,6 @@
-class ArticlesController < ApplicationController
+class Admin::ArticlesController < ApplicationController
+  
+  http_basic_authenticate_with name: ENV['ADMIN'] , password: ENV['PASSWORD'] , except: [:index, :show]
 
   def index
     @articles = Article.all
@@ -47,4 +49,4 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :text)
     end
-  end
+end
