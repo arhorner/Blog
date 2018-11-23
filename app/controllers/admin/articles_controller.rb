@@ -42,7 +42,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
 
-    redirect_to articles_path
+    redirect_to admin_articles_path
   end
 
   private
